@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Generator</title>
+    <!-- Include Alpine.js from a CDN for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2" defer></script>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #f7f7f7;
+          text-align: center;
+          padding-top: 50px;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: #34495e;
+            font-size: 3em; 
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em; 
+        }
+
+        h1 {
+          color: #2c3e50;
+          margin-bottom: 20px;
+        }
+      
+        button {
+          background-color: #3498db;
+          border: none;
+          border-radius: 5px;
+          padding: 15px 30px;
+          font-size: 18px;
+          color: white;
+          transition: background-color 0.3s ease;
+          cursor: pointer;
+        }
+      
+        button:hover {
+          background-color: #2980b9;
+        }
+      
+        button:focus {
+          outline: none;
+        }
+      
+        .name-generator {
+          margin: auto;
+          padding: 20px;
+          max-width: 300px;
+          background-color: white;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+        }
+    </style>  
+</head>
+<body>
+    <div class="name-generator" x-data="{ name: 'Click the button!' }">
+        <header>
+            <h1>Random Name Generator</h1>
+            <p class="subtitle">Let fate decide your new moniker!</p>
+        </header>
+        <h1 x-text="name"></h1>
+        <button @click="name = randomName()">Generate Name</button>
+    </div>
+    <script>
+        function randomName() {
+            const names = ["Alice", "Bob", "Charlie", "Diana", "Eve", "Frank", "Grace", "Hank", "Irene", "John"];
+            return names[Math.floor(Math.random() * names.length)];
+        }
+    </script>
+</body>
+</html>
